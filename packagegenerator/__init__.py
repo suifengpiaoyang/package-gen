@@ -24,9 +24,14 @@ def create_file(path, data):
 
 def generate_package(projectname):
 
+    if '-' in projectname:
+        packagename = projectname.replace('-', '_')
+    else:
+        packagename = projectname
+
     base_path = os.path.abspath('.')
     package_path = os.path.join(base_path, projectname)
-    package_sub_path = os.path.join(package_path, projectname)
+    package_sub_path = os.path.join(package_path, packagename)
 
     os.makedirs(package_sub_path)
     
@@ -45,7 +50,7 @@ from {} import main
 
 if __name__ == '__main__':
     main()
-'''.format(projectname)
+'''.format(packagename)
     create_file(os.path.join(package_sub_path, '__init__.py'), init_code)
     create_file(os.path.join(package_sub_path, '__main__.py'), main_code)
 
@@ -62,11 +67,11 @@ setuptools.setup(
     include_package_data=True,
     entry_points={{
         "console_scripts": [
-            "yourcommand={projectname}:main",
+            "yourcommand={packagename}:main",
         ]
     }},
 )
-'''.format(projectname=projectname)
+'''.format(projectname=projectname, packagename=packagename)
     create_file(os.path.join(package_path, 'setup.py'), setup_code)
 
     print('{} generate successfully.'.format(package_path))
