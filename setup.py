@@ -7,7 +7,7 @@ with open('README.md', 'r', encoding='utf-8') as fl:
 
 setuptools.setup(
     name="package-gen",
-    version="0.0.3",
+    version="0.0.4",
     author="Zhang",
     author_email="",
     url='https://github.com/suifengpiaoyang/package-gen',
