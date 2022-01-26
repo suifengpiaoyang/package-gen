@@ -12,18 +12,20 @@
  在安装完成后，获得一个全局命令：pk-gen
  ```
 $pk-gen -h
-usage: pk-gen [-h] [--template-dir TEMPLATE_DIR | --name NAME] packagename
+usage: pk-gen [-h] [-l | --name NAME | --template-dir TEMPLATE_DIR]
+              [packagename]
 
-generate python package framework
+generate python package
 
 positional arguments:
   packagename           the package name
 
 optional arguments:
   -h, --help            show this help message and exit
+  -l, --list            list the default template names and exit
+  --name NAME           use the default template from name
   --template-dir TEMPLATE_DIR
                         custom template directory path
-  --name NAME           use the default template from name
  ```
 
 ### 举例说明

@@ -36,6 +36,14 @@ def render_from_text(template, options):
     return s.substitute(**options)
 
 
+def show_banner(message):
+    num = 23
+    suffix = '-'
+    print(suffix * num)
+    print(message)
+    print(suffix * num)
+
+
 def generate_package(packagename, template_dir):
 
     options = {}
@@ -67,25 +75,32 @@ def generate_package(packagename, template_dir):
                 file = file.replace('-tmpl', '')
             new = os.path.join(new_root, file)
             generate_file(old, new, options)
-    print(f'[{packagename}] generated successfully.')
+    print(f'Package [{packagename}] generated successfully.')
 
 
 def main():
     parser = argparse.ArgumentParser(
-        description='generate python package framework')
-    parser.add_argument('packagename', help='the package name')
+        description='generate python package')
+    parser.add_argument('packagename', nargs='?', help='the package name')
     template_group = parser.add_mutually_exclusive_group()
-    template_group.add_argument(
-        '--template-dir', help='custom template directory path')
-    template_group.add_argument(
-        '--name', help='use the default template from name')
+    template_group.add_argument('-l', '--list',
+                                action='store_true',
+                                help='list the default template names and exit')
+    template_group.add_argument('--name',
+                                help='use the default template from name')
+    template_group.add_argument('--template-dir',
+                                help='custom template directory path')
 
     args = parser.parse_args()
 
+    if args.list:
+        show_banner(' The default templates')
+        show_message('\n'.join(os.listdir(TEMPLATES_DIR)))
+
+    if args.packagename is None or len(args.packagename.strip()) == 0:
+        show_message('Must have a packagename!')
     packagename = args.packagename.strip()
 
-    if len(packagename) == 0:
-        show_message('packagename must not be null')
     if not is_all_ascii(packagename):
         show_message('packagename must be all english charactors')
     if packagename in os.listdir():
