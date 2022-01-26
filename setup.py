@@ -6,12 +6,12 @@ setuptools.setup(
     author="Zhang",
     author_email="",
     url = 'https://github.com/suifengpiaoyang/packagegenerator',
-    description="generate python package framework",
+    description="Generate python package",
     packages=setuptools.find_packages(),
     include_package_data=True,
     entry_points={
         "console_scripts": [
-            "package-generate=packagegenerator:main",
+            "pk-gen=packagegenerator:main",
         ]
     },
 )
