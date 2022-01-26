@@ -1,11 +1,11 @@
 import setuptools
 
 setuptools.setup(
-    name="packagegenerator",
+    name="pk-gen",
     version="0.0.2",
     author="Zhang",
     author_email="",
-    url = 'https://github.com/suifengpiaoyang/packagegenerator',
+    url = 'https://github.com/suifengpiaoyang/pk-gen',
     description="Generate python package",
     packages=setuptools.find_packages(),
     include_package_data=True,

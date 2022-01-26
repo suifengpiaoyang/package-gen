@@ -1,4 +1,4 @@
-# packagegenerator
+# pk-gen
 一个简单的 Python 包框架生成器，目的是为了方便快速构建一个全局命令行参数。而不必每次都构建类似的结构和去敲那些类似的代码。  
 
 ### 安装
@@ -6,7 +6,7 @@
 通过 pypi 安装  
 
 ```
-pip install packagegenerator
+pip install pk-gen
 ```
 
 或者通过本地安装。进入 setup.py 路径，运行  
