@@ -14,4 +14,5 @@ setuptools.setup(
             "pk-gen=packagegenerator:main",
         ]
     },
+    python_requires='>=3.6.0'
 )
