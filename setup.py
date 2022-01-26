@@ -1,12 +1,19 @@
 import setuptools
 
+
+with open('README.md', 'r', encoding='utf-8') as fl:
+    long_description = fl.read()
+
+
 setuptools.setup(
-    name="pk-gen",
-    version="0.0.2",
+    name="package-gen",
+    version="0.0.3",
     author="Zhang",
     author_email="",
-    url = 'https://github.com/suifengpiaoyang/pk-gen',
+    url='https://github.com/suifengpiaoyang/package-gen',
     description="Generate python package",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
     packages=setuptools.find_packages(),
     include_package_data=True,
     entry_points={

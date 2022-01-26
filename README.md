@@ -6,7 +6,7 @@
 通过 pypi 安装  
 
 ```
-pip install pk-gen
+pip install package-gen
 ```
 
 或者通过本地安装。进入 setup.py 路径，运行  
